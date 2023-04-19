@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('cloning the code'){
             steps{
-                git branch: 'main' url: 'https://github.com/Cheerla25/spring-petclinic-test.git'
+                git url: 'https://github.com/Cheerla25/spring-petclinic-test.git', branch: 'main'
             }
         }
 
