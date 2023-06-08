@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prashanth
+  labels:
+    app: ubuntu
+spec:
+  containers:
+    - name: cheerla
+    - image: ubuntu
+  ports:
+    - name: prash
+    - containerPort: 8080
+    - protocol: TCP       
