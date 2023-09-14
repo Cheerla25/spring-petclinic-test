@@ -2,12 +2,11 @@ pipeline{
 agent any
 stages{
     stage("git clone"){
-        stages{
+        steps{
             git url: "https://github.com/Cheerla25/spring-petclinic-test.git",branch: "main"
         }
     }
-    stages("build"){
-        stage{
+    stage("build"){
             steps{
                 sh "mvn install"
             }
