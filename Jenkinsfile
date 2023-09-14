@@ -29,5 +29,25 @@ pipeline{
 
             }
         }
+        stage("configuration"){
+            steps{
+                rtMavenResolver (
+                    id: 'maven-resolver',
+                    serverId: 'prashjfrog',
+                    releaseRepo: libs-release,
+                    snapshotRepo: libs-snapshot
+                )
+
+            }
+        }
+        stage('Build Maven Project') {
+            steps {
+                rtMavenRun (
+                    tool: '/usr/share/maven',
+                    pom: 'pom.xml',
+                    goals: '-U clean install',
+                    deployerId: "maven-deployer"
+                )
+            }
     }
 }
