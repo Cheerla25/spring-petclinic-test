@@ -50,6 +50,14 @@ pipeline{
                 )
             }
     }
+
+        stage ('Publish Build Info') {
+                steps {
+                    rtPublishBuildInfo (
+                        serverId: 'prashjfrog'
+                    )
+                }
+            }
    }
 }
 
