@@ -43,7 +43,7 @@ pipeline{
         stage('Build Maven Project') {
             steps {
                 rtMavenRun (
-                    tool: '/usr/share/maven',
+                    tool: 'prash',
                     pom: 'pom.xml',
                     goals: 'clean install',
                     deployerId: 'maven-deployer'
