@@ -16,5 +16,10 @@ pipeline{
                 archiveArtifacts artifacts:"target/**.jar"
             }
         }
+        stage("junit publish"){
+            steps{
+                junit "target/surefire-reports/*.xml"
+            }
+        }
     }
 }
