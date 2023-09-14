@@ -1,16 +1,17 @@
-pipeline {
-    agent any
-    stages{
-        stage('cloning'){
-            steps{
-             git url: 'https://github.com/Cheerla25/spring-petclinic-test.git', branch: 'main'
-            }
+pipeline{
+agent any
+stages{
+    stage("git clone"){
+        stages{
+            git url: "https://github.com/Cheerla25/spring-petclinic-test.git",branch: "main"
         }
-
-        stage('build'){
+    }
+    stages("build"){
+        stage{
             steps{
-                sh 'mvn package'
+                sh "mvn install"
             }
         }
     }
+}
 }
