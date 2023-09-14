@@ -31,11 +31,11 @@ pipeline{
         }
         stage("configuration"){
             steps{
-                rtMavenResolver (
-                    id: 'maven-resolver',
+                rtMavenDeployer (
+                    id: 'maven-deployer',
                     serverId: 'prashjfrog',
-                    releaseRepo: libs-release,
-                    snapshotRepo: libs-snapshot
+                    releaseRepo: 'libs-release',
+                    snapshotRepo: 'libs-snapshot'
                 )
 
             }
@@ -45,8 +45,8 @@ pipeline{
                 rtMavenRun (
                     tool: '/usr/share/maven',
                     pom: 'pom.xml',
-                    goals: '-U clean install',
-                    deployerId: "maven-deployer"
+                    goals: 'clean install',
+                    deployerId: 'maven-deployer'
                 )
             }
     }
